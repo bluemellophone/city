@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block content %}
+    <script type="text/javascript">
+        var seconds = 0;
+        var ready = {};
+        var processed = {};
+        var data_url = "{{ url_for('status') }}";
+            
+        var refreshInterval = setInterval(function() {
+            refreshData();
+        }, 30000);
+
+        var displayInterval = setInterval(function() {
+            seconds += 1;
+            $("#seconds-display").html("Last updated: " + seconds + " seconds")
+        }, 1000);
+
+        $( document ).ready( function() {
+            refreshData();
+        });
+
+        function refreshData()
+        {
+            template = '' + 
+            '<tr>' + 
+            '    <td><b>{0}</b></td>' + 
+            '    <td><b>{1}</b></td>' + 
+            '    <td>{2} / {3}</td>' + 
+            '    <td><a class="btn btn-xs btn-primary" href="/review/{4}/{5}" target="_blank">Review</a>' + 
+            '    <td>{6}</td>' + 
+            '    <td>{7}</td>' + 
+            '    <td>{8}</td>' + 
+            '    <td><a class="btn btn-xs btn-default" href="/print/{9}/{10}" target="_blank">{11}<a/></td>' + 
+            '</tr>';
+
+            $.getJSON(data_url)
+                .success(function( data ) {
+                    $("#content").html('');
+                    $("#source").html("<pre>" + syntaxHighlight(data) + "</pre>");
+
+                    $.each( data.data.cars, function( key_car, car ) {
+                        $.each( car.persons, function( key_person, person ) {
+                            content = template.format(
+                                key_car,
+                                key_person,
+                                person.submitted_images,
+                                person.submitted_generated_json,
+                                key_car,
+                                key_person,
+                                person.analyzed,
+                                person.reviewed_posted,
+                                person.reviewed_rendered,
+                                key_car,
+                                key_person,
+                                (person.reviewed_printed === undefined ? false : true)
+                            );
+                            var content = content.replace(/undefined/g, "");
+                            var content = content.replace(/true/g, "Yes");
+                            var content = content.replace(/false/g, "<b style='color:#d9534f;'>NO</b>");
+
+                            $("#content").append(content);
+                        });
+                    });
+                    seconds = 0;
+                })
+                .error(function() { 
+                    $("#content").html('');
+                    $("#source").html("ERROR LOADING STATUS");
+                });
+
+            
+        }
+    </script>
+    <div class="jumbotron" style="background-color: transparent;">
+        <div id="seconds-display" style="width:100%; text-align: right; color: #bbb; font-style: italic;">
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Car</th>
+                    <th>Person</th>
+                    <th>Submitted<br/>(Images / GPS)</th>
+                    <th>Review</th>
+                    <th>Analysed</th>
+                    <th>Posted</th>
+                    <th>Rendered</th>
+                    <th>Printed</th>
+                </tr>
+            </thead>
+            <tbody id="content">
+            </tbody>
+        </table>
+    </div>
+    <div class="jumbotron" id="source"></div>
+{% endblock %}

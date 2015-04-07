@@ -1,0 +1,639 @@
+
+html,body {
+    height:100%;
+}
+
+.header
+{
+  height: 40px;
+}
+
+.content
+{
+  margin-top: 10px;
+}
+
+.row-custom-expand
+{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.col-custom-span-8
+{
+/*   text-align: center; */
+  width: 11.5%;
+  display: inline-block;
+}
+
+.rotate-45 {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.image-center
+{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.analysis-container
+{
+  /*height:858px; */
+  height:950px; 
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right:15px;
+}
+
+.analysis
+{
+  /*background-color: red;*/
+  margin: 15px 0px; 
+  position: relative;
+  display: table;
+}
+
+.analysis-selected
+{
+  background-color: #EEEEEE;
+}
+
+.analysis-image-original, .analysis-image-match
+{
+  text-align: center;
+  padding: 20px;
+  float: none;
+  display: table-cell;
+}
+
+.analysis-image-hover-container
+{
+  float: none;
+  display: table-cell;
+  text-align: center;
+  font-size: 50px;
+  vertical-align: middle;
+  line-height: 0px;
+}
+
+.analysis-image-hover-container-new .analysis-image-new
+{
+  background-color: #3071A9;
+  color: #fff;
+}
+
+.analysis-image-hover-container-match .analysis-image-hover
+{
+  background-color: #3071A9;
+  color: #fff;
+}
+
+.analysis-image-hover, .analysis-image-new
+{
+  padding: 15px 0px;
+}
+
+.analysis-image-correspondences
+{
+  position: absolute;
+  top: 0;
+  left: -100%;
+  /*left: 0;*/
+  text-align: center;
+  background-color: #3071a9;
+  z-index: 9999;
+  height: 100%;
+  padding: 20px;
+  vertical-align: middle;
+  display: table-cell;
+  float: none;
+}
+
+.analysis-image-correspondences img, .analysis-image-original img, .analysis-image-match img
+{
+  max-height: 100%;
+  max-width: 100%;
+  /*
+  -moz-box-shadow: 1px 1px 8px gray;
+  -webkit-box-shadow: 1px 1px 8px gray;
+  box-shadow: 1px 1px 8px gray;
+  */
+}
+
+.analysis-image-correspondences img
+{
+  height: 100%;
+  width: 100%;
+}
+
+.candidate 
+{
+  display: table;
+  border-bottom: 1px #ddd solid;
+}
+
+.candidate-image-original, .candidate-image-match
+{
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  float: none;
+}
+
+.candidate-image-original img, .candidate-image-match img
+{
+  width: 100%;
+  height: auto;
+  max-height: 135px;
+  max-width: 100%;
+  /*  
+  -moz-box-shadow: 1px 1px 8px gray;
+  -webkit-box-shadow: 1px 1px 8px gray;
+  box-shadow: 1px 1px 8px gray;
+  */
+}
+
+.candidate-image-original img
+{
+  margin: 5px;
+}
+
+.candidate-image-original .candidate-image-original-container
+{
+  width: 100%;
+  height: auto;
+  max-height: 145px;
+  margin: 5px;
+}
+
+.candidate-image-original .candidate-black, .candidate-image-original .candidate-red, .candidate-image-original .candidate-green
+{
+  padding-right: 10px;
+}
+
+.candidate-black
+{
+  /*background-color: #000000;*/
+  background-color: #333333 !important;
+}
+
+.candidate-red
+{
+  /*background-color: #bb0000;*/
+  background-color: #D9534F !important;
+}
+
+.candidate-green
+{
+  /*background-color: #006600;*/
+  background-color: #5CB85C !important;
+}
+
+.candidate-image-original p, .candidate-image-match p
+{
+  margin: 0px;
+}
+
+.candidate-information
+{
+  text-align: center;
+  display: table-cell;
+  float: none;
+  padding: 0px;
+  position: relative;
+}
+
+/* BEGIN VERSION 2 */
+.candidate-information-top, .candidate-information-bottom
+{
+  height: 50%;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.candidate-information-top h4, .candidate-information-bottom h4
+{
+  margin: 0px;
+  padding-top: 10px;
+}
+
+.candidate-information-top, .candidate-image-match
+{
+  /*background-color: #DDD !important;*/
+}
+
+.candidate-information-bottom, .candidate-image-original
+{
+  /*background-color: #CCC !important;*/
+}
+/* END VERSION 2 */
+
+#splitter
+{
+  margin-bottom: 30px;
+}
+
+#send-button
+{
+  width: 100%;
+  height: 80px;
+  vertical-align: middle;
+  line-height: 60px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+#gps-map-canvas
+{ 
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
+}
+
+#map-legend
+{
+  padding: 5px;
+  background-color: #eee !important;
+  border: 1px #999 solid;
+  position: absolute;
+  z-index: 9999;
+  top: 294px;
+  left: 92px;
+}
+
+#map-legend div
+{
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.checkered  {
+  background-color: red !important;
+  -webkit-background-size: 50px 50px !important;
+  -moz-background-size: 50px 50px !important;
+  background-size: 20px 20px !important; /* Controls the size of the stripes */
+
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+            -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #555), color-stop(.25, transparent), to(transparent)),
+            -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #555)),
+              -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #555)) !important;
+  background-image: -webkit-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            -webkit-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            -webkit-linear-gradient(45deg, transparent 75%, #555 75%),
+              -webkit-linear-gradient(-45deg, transparent 75%, #555 75%) !important;
+  background-image: -moz-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            -moz-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            -moz-linear-gradient(45deg, transparent 75%, #555 75%),
+              -moz-linear-gradient(-45deg, transparent 75%, #555 75%) !important;
+  background-image: -ms-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            -ms-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            -ms-linear-gradient(45deg, transparent 75%, #555 75%),
+              -ms-linear-gradient(-45deg, transparent 75%, #555 75%) !important;
+  background-image: -o-linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            -o-linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            -o-linear-gradient(45deg, transparent 75%, #555 75%),
+              -o-linear-gradient(-45deg, transparent 75%, #555 75%) !important;
+  background-image: linear-gradient(45deg, #555 25%, transparent 25%, transparent),
+            linear-gradient(-45deg, #555 25%, transparent 25%, transparent),
+            linear-gradient(45deg, transparent 75%, #555 75%),
+              linear-gradient(-45deg, transparent 75%, #555 75%) !important;
+}
+
+.identification-container
+{
+  text-align: center; 
+  height: 80%; 
+  margin-top: 4px; 
+  padding: 13px; 
+  color: #FFFFFF !important;
+  font-size:22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.identification-color-white
+{
+  background-color: #FFFFFF !important;
+  color: #333333 !important;
+  background-image: none !important;
+  border: 1px #333 solid !important;
+}
+
+.identification-color-red
+{
+  background-color: #D9534F !important;
+  background-image: none !important;
+}
+
+.identification-color-orange
+{
+  background-color: #EF7A4C !important;
+  background-image: none !important;
+}
+
+.identification-color-yellow
+{
+  background-color: #F0AD4E !important;
+  background-image: none !important;
+}
+
+.identification-color-green
+{
+  background-color: #5CB85C !important;
+  background-image: none !important;
+}
+
+.identification-color-blue
+{
+  background-color: #3071A9 !important;
+  background-image: none !important;
+}
+
+.identification-color-purple
+{
+  background-color: #6F5499 !important;
+  background-image: none !important;
+}
+
+.identification-color-black
+{
+  background-color: #333333 !important;
+  background-image: none !important;
+}
+
+.identification-color-test
+{
+  background-color: #AAA !important;
+}
+
+/* Gogle Maps */
+a[href^="http://maps.google.com/maps"]
+{
+  display:none !important
+}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc 
+{
+  display:none !important;
+}
+
+.gmnoprint div 
+{
+  background:none !important;
+}
+
+.us-letter
+{
+  width:773px; 
+  height:1000px; 
+}
+
+.us-letter-landscape
+{
+  width:1000px; 
+  height:772px; 
+}
+
+.a4-letter
+{
+  width:773px; 
+  height:1092px; 
+}
+
+.a4-letter-landscape
+{
+  width:1092px; 
+  height:773px; 
+}
+
+.highlight-string 
+{ 
+  color: green; 
+}
+
+.highlight-number 
+{ 
+  color: purple; 
+}
+
+.highlight-boolean 
+{ 
+  color: blue; 
+}
+
+.highlight-null 
+{ 
+  color: black; 
+}
+
+.highlight-key 
+{ 
+  color: red; 
+}
+
+.card-row
+{
+  height: 25%;
+  margin:0px;
+}
+
+.card-row > .col-md-4
+{
+  padding: 8px;
+  height: 100%;
+  border: 1px #ddd solid;
+}
+
+.card-cell
+{
+  height:100%;
+  width: 100%;
+  position: relative;
+  /*background-color: lightgreen;*/
+}
+
+.ibeis-logo
+{
+  position: absolute;
+  height: 170px;
+}
+
+.kwf-logo-container
+{
+  width:100%;
+  text-align: center;
+}
+
+.kwf-logo
+{
+  width: 215px;
+  height: auto;
+  margin-top: -4px;
+}
+
+.kws-logo
+{
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 88px;
+  height: auto;
+}
+
+.color-bar
+{
+  width: 100%;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  text-align: center;
+  color: #FFF;
+  padding: 10px;
+  font-size: 30px;
+  line-height: 14px;
+  letter-spacing: 3px;
+}
+
+.color-bar.identification-color-white
+{
+  border-top: 0px !important;
+  border-color: #aaa !important; 
+}
+
+.color-bar > .col-no-pad
+{
+  padding: 0px;
+}
+
+.cell-row
+{
+  height: 74px;
+  border: 1px #aaa solid;
+  width: 100%;
+  position: absolute;
+  top: 62px;
+}
+
+.cell-row > .col-xs-6
+{
+  height: 100%;
+  text-align: center;
+  color: #aaa !important;
+}
+
+.hour-separation
+{
+  color: #333 !important;
+  font-size: 60px;
+  line-height: 37px;
+}
+
+.background-information
+{
+  color: #333 !important;
+  margin-left: 60%;
+  padding: 24px 0px;
+  height: 100%;
+}
+
+/* Printing */
+@media print 
+{
+  /* Duplicate this CSS for printable.css */
+  @page 
+  {
+      size: auto;   /* auto is the current printer page size */
+      margin: 0mm;  /* this affects the margin in the printer settings */
+  }
+
+  body *, header, footer
+  {
+    visibility: hidden !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .identification-container
+  {
+    color: #FFFFFF !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .color-bar > .col-no-pad
+  {
+    color: #FFFFFF !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .color-bar.identification-color-white > .col-no-pad
+  {
+    color: #333333 !important;
+  }
+
+  .identification-color-white
+  {
+    color: #333333 !important; 
+  }
+
+  .header, .header *, .footer, .footer *, .container, .printarea #content-container, #splitter, #splitter .col-md-6
+  {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+  .header, .header *, .footer, .footer *
+  {
+    height: 0px !important;
+  }
+
+  .content-container
+  {
+    margin: 0px;
+  }
+  
+  .content
+  {
+    margin-top: 0px !important;
+  }
+  
+  #content-left
+  {
+    height: 0px;
+  }
+
+  #content-left.col-md-6 
+  {
+    display: none !important;
+  }
+
+  .printarea, .printarea * 
+  {
+    visibility: visible !important;
+  }
+
+  .printarea
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0px !important;
+    width:100% !important;
+    height:inherit !important;
+    overflow: visible !important;
+    border: none !important;
+    float:none !important;
+  }
+
+  .printarea-document
+  {
+    padding-top: 0px !important;
+  }
+}
